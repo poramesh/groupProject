@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<?php session_start();?>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>Login/Sign Up Form</title>
+		<link rel="stylesheet" href="loginpage2.css">
+		<link rel=" " href=" ">
+	</head>
+	
+	<body>
+		    <form action="register.php" method="post">
+					<div >
+						<h1 style="color:black">TEACHWISE</h1><br/>
+						<!--firstname-->
+						<label for="firstname">First Name</label> 
+						<input type="text" placeholder="FirstName" name="firstname" required/><br/>
+						<!--lastname-->
+						<label for="lastname">Last Name</label> 
+						<input type="text" placeholder="LastName" name="lastname" required/><br/>
+						<!--emailid-->
+						<label for="emailid">Email-id</label> 
+						<input type="text" placeholder="Email" name="email" required/><br/>
+						<!-- Password field -->
+						Password: <input type="password" value="FakePSW" id="myInput">
+						<!-- An element to toggle between password visibility -->
+						<input type="checkbox" onclick="myFunction()">Show Password
+						<!--dateOfbirth-->
+						<label style="color: white">DOB</label> 
+						<input type="date"  name="dob" required/><br/> 
+						<!--Submit button -->
+						<!--<button type="submit" name="submit">Submit</button>-->
+						<button input type="register" id="btn" value="register" name="register">Register</button></br></br>
+						<br>
+						<br>
+						<br>
+						<img src="images/logo.jpg" width="100" height="100"/>
+						
+					</div>
+				</form>
+			</form>
+		</div>
+		
+	</body>
+</html> 
