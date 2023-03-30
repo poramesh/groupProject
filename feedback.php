@@ -31,12 +31,26 @@ echo "moduleid: ", $modulecode;
 echo "<br>";
 echo "surveyid: ", $surveyid;
 echo "<br>";
-	$sql="insert into survey (MODULECODE,SURVEYID,STUDENTID,Q1,Q2,Q3,Q4,Q5,STATUS) values ('$modulecode','$surveyid','$studentid','$q1','$q2','$q3','$q4','$q5','DONE')";
+
 	$conn = new mysqli($servername, $username, $password, $db_name);
+	$sqlcheck="select count(*) from survey where STUDENTID='$studentid' AND MODULECODE='$modulecode' AND SURVEYID='$surveyid'";
+    $resultcheck = mysqli_query($conn, $sqlcheck);
+	 $rowcheck = mysqli_fetch_row($resultcheck);
+	 if($rowcheck[0] ==0){
+	$sql="insert into survey (MODULECODE,SURVEYID,STUDENTID,Q1,Q2,Q3,Q4,Q5,STATUS) values ('$modulecode','$surveyid','$studentid','$q1','$q2','$q3','$q4','$q5','DONE')";
+
 	$result = mysqli_query($conn, $sql);
 	if($result)
 		echo 'data inserted';
-   
+		$sqlfetchreward="select REWARD FROM LOGIN WHERE STUDENTID='$studentid'";
+		$resultfetchreward = mysqli_query($conn, $sqlfetchreward);
+		$rowfetchreward = mysqli_fetch_row($resultfetchreward);
+		$reward=$rowfetchreward[0] + 10;
+	 	$sqlreward="update login set REWARD=10 where STUDENTID='$studentid'";
+		$resultreward = mysqli_query($conn, $sqlreward);
+	 }
+	 else
+		 echo "you have already provided your feedback";
 
     
 ?>
