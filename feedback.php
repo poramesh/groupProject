@@ -48,9 +48,12 @@ echo "<br>";
 		$reward=$rowfetchreward[0] + 10;
 	 	$sqlreward="update login set REWARD=10 where STUDENTID='$studentid'";
 		$resultreward = mysqli_query($conn, $sqlreward);
+		 header("Location:successfulsurvey.html");
 	 }
-	 else
+	 else {
 		 echo "you have already provided your feedback";
+                 header("Location:alreadyattempted.html");
+	 }
 
     
 ?>
