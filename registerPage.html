@@ -11,28 +11,32 @@
 	</head>
 	
 	<body>
-		    <form action="register.php" method="post">
+		    <form action="insert_user.php" method="post">
 					<div >
 						<h1 style="color:black">TEACHWISE</h1><br/>
 						<!--firstname-->
-						<label for="firstname">First Name</label> 
-						<input type="text" placeholder="FirstName" name="firstname" required/><br/>
+						<input type="text" placeholder="FirstName" name="firstname" required/>
 						<!--lastname-->
-						<label for="lastname">Last Name</label> 
 						<input type="text" placeholder="LastName" name="lastname" required/><br/>
 						<!--emailid-->
-						<label for="emailid">Email-id</label> 
 						<input type="text" placeholder="Email" name="email" required/><br/>
+						<!--username-->
+						<input type="text" placeholder="Username" name="username" required/><br/>
 						<!-- Password field -->
-						Password: <input type="password" value="FakePSW" id="myInput">
-						<!-- An element to toggle between password visibility -->
-						<input type="checkbox" onclick="myFunction()">Show Password
+						<input type="password" name="password" id="myInput">
+						<!-- usertype field -->
+						<input type="radio" id="student" name="usertype" value="student">
+						<label style="color:black;" for="student">Student</label><br>
+						<input type="radio" id="moduleleader" name="usertype" value="moduleleader">
+						<label style="color:black;" for="moduleleader">Moduleleader</label><br>
+						<!-- An element to toggle between password visibility 
+						<input type="checkbox" onclick="myFunction()">Show Password</br>-->
 						<!--dateOfbirth-->
-						<label style="color: white">DOB</label> 
-						<input type="date"  name="dob" required/><br/> 
 						<!--Submit button -->
 						<!--<button type="submit" name="submit">Submit</button>-->
-						<button input type="register" id="btn" value="register" name="register">Register</button></br></br>
+						<button input type="submit" id="btn" value="register" name="register">Sign up</button>
+						 Already have an account? <a href='loginPage.html'>Login</a>
+						</br></br>
 						<br>
 						<br>
 						<br>
