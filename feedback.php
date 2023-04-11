@@ -42,15 +42,17 @@ echo "<br>";
 	$result = mysqli_query($conn, $sql);
 	if($result)
 		echo 'data inserted';
-		$sqlfetchreward="select REWARD FROM LOGIN WHERE STUDENTID='$studentid'";
+		$sqlfetchreward="select REWARD,SURVEYCOUNT FROM REWARD WHERE STUDENTID='$studentid'";
 		$resultfetchreward = mysqli_query($conn, $sqlfetchreward);
 		$rowfetchreward = mysqli_fetch_row($resultfetchreward);
 		$reward=$rowfetchreward[0] + 10;
-	 	$sqlreward="update login set REWARD=10 where STUDENTID='$studentid'";
+		$count=$rowfetchreward[1] + 1;
+	 	$sqlreward="update REWARD set REWARD='$reward',SURVEYCOUNT='$count' where STUDENTID='$studentid'";
 		$resultreward = mysqli_query($conn, $sqlreward);
+		header("Location:successfulsurvey.html");
 	 }
-	 else
+	 else{
 		 echo "you have already provided your feedback";
-
-    
+			 header("Location:alreadyattempted.html");
+	 }
 ?>

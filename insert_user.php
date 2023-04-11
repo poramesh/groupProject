@@ -11,10 +11,14 @@ include("connection.php");
 	$Username = $_POST["username"];
 	$Password = $_POST["password"];
 	$usertype = $_POST["usertype"];
-
-	$query = "insert into login(Username, Password, usertype, FirstName, LastName, Email) values('$Username','$Password','$usertype','$FirstName','$LastName','$Email')";
+	$studentid = $_POST["id"];
+	$reward = 0;
+	$surveycount =0;
+	$query = "insert into login(Username, Password, usertype, FirstName, LastName, Email,Studentid) values('$Username','$Password','$usertype','$FirstName','$LastName','$Email','$studentid')";
+	$query1 = "insert into reward(Studentid,Surveycount,Reward) values('$studentid','$surveycount','$reward')";
 	echo $query;
 	$result = mysqli_query($conn,$query);
+	$result1 = mysqli_query($conn,$query1);
 
 	if($result){
 		$_SESSION["msg"] = "Signup was succesful <br/><br/>Username : Your Email <br/>Password : firstname@123";

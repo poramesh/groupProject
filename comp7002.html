@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +42,7 @@
                                 <a class="nav-link text-white" href="#"><i class="bi bi-chat"></i> Rewards</a>
                             </li>
                             <li class="nav-item me-3 me-lg-0">
-                                <a class="nav-link text-white" href="#"><i class="bi bi-arrow-counterclockwise"></i>
+                                <a class="nav-link text-white" href="individualfeedback.html"><i class="bi bi-arrow-counterclockwise"></i>
                                     Feedback</a>
                             </li>
                         </ul>
@@ -66,7 +67,7 @@
                                         <a class="dropdown-item" href="#">Settings</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="logout.php">Logout</a>
+                                        <a class="dropdown-item" href="#">Logout</a>
                                     </li>
                                 </ul>
                             </li>
@@ -153,17 +154,17 @@
                 <!--side bar end-->
                 <!--page start-->
                 
-                    <div class="col-lg-9 col-md-9 col-sm-9">
+               <div class="col-lg-9 col-md-9 col-sm-9">
                         <!--your objectives-->
                         <div class="white-box">
                             <form action="feedback.php" method="post">
                                 <div class="white-box-heading">
-                                    <h5>COMP7002 - Modern Computer Systems</h5>
-                                    <textarea name="modulecode" value="COMP7002">COMP7002</textarea>
-                                    <textarea name="surveyid" value="1">1</textarea>
+                                    <h5>COMP7002 - Modern Computer Systems </h5>
+                                    <textarea name="modulecode" value="COMP7002"><?php include ("query.php")echo $row[0]; ?></textarea>
+                                    <textarea name="surveyid" value="1"><?php echo $row[1]; ?></textarea>
                                 </div>
                                 <h1>FEEDBACK</h1>
-                                <p>1.Did you enjoy the module?</p>
+                                <p><?php include ("query.php")echo $row[0]; ?></p>
                                 <input type="radio" id="Poor" name="q1" value="1">
                                 <label for="Poor">&#128542;</label>
 
@@ -215,7 +216,8 @@
                     <!--page end-->
             </div>
             </div>
-            
+       
+	
         <p class="copyright">Teachwise - All Rights Reserved</p>
         </div>
         
