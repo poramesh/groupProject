@@ -41,7 +41,7 @@
                                 <a class="nav-link text-white" href="#"><i class="bi bi-chat"></i> Rewards</a>
                             </li>
                             <li class="nav-item me-3 me-lg-0">
-                                <a class="nav-link text-white" href="individualfeedback.html"><i class="bi bi-arrow-counterclockwise"></i>
+                                <a class="nav-link text-white" href="#"><i class="bi bi-arrow-counterclockwise"></i>
                                     Feedback</a>
                             </li>
                         </ul>
@@ -56,8 +56,7 @@
                                 <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
                                     id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
                                     aria-expanded="false">
-                                    <span>Hello <?php session_start();
-$username=$_SESSION['username'];echo $username ?></span>
+                                    <span> J</span>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
@@ -91,7 +90,7 @@ $username=$_SESSION['username'];echo $username ?></span>
                                 <a href="javascript:void(0)">
                                     <div class="groupicon">
                                         <i class="bi bi-person"></i>
-                                        <span> Dashboard</span>
+                                        <a href="module.html"><span> Dashboard</span></a>
                                     </div>
                                     <span class="notify">3</span>
                                 </a>
@@ -131,7 +130,7 @@ $username=$_SESSION['username'];echo $username ?></span>
                             <div class="m-boxes">
                                 <img src="assets/img/grid-image.png" alt="">
                                 <div class="m-content">
-                                   <a href="COMP7002.html"><p>COMP7002 - Modern Computer Systems</p></a>
+                                    <a href="COMP7002.html"><p>COMP7002 - Modern Computer Systems</p></a>
                                 </div>
                             </div>
                             <!--box2-->
@@ -157,97 +156,19 @@ $username=$_SESSION['username'];echo $username ?></span>
                 <div class="col-lg-9 col-md-9 col-sm-9">
                     <!--your objectives-->
                     <div class="white-box">
+					<form action="indivFeedModLeader.php" method="post">
                         <div class="white-box-heading">
-                            <h5>Modules</h5>
-                            <img src="assets/img/downarrow.png" alt="">
+                            <h5>Individual Feedback Students</h5>
                         </div>
-                    <!--white box two-->
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                        <button input type="button" id="btn" value="Login" name="button">
-                            <div class="md-bx-1">
-                                <div class="bckclr"></div>
-                                <div class="bx-cntnt">
-                                <div class="inr-hd">
-                                <a href="COMP7002.php"<h4>COMP7002</h4></a>
-                                <img src="assets/img/menu-horizontal.png" alt="">
-                                </div>
-                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
-                                </p>
-                                </div>
-                            </div>
-                        </button>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="md-bx-1">
-                                <div class="bckclr"></div>
-                                <div class="bx-cntnt">
-                                <div class="inr-hd">
-                                <h4>COMP7029</h4>
-                                <img src="assets/img/menu-horizontal.png" alt="">
-                                </div>
-                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
-                                </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="md-bx-1">
-                                <div class="bckclr"></div>
-                                <div class="bx-cntnt">
-                                <div class="inr-hd">
-                                <h4>TECH7004</h4>
-                                <img src="assets/img/menu-horizontal.png" alt="">
-                                </div>
-                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
-                                </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--row 2-->
-                    <div class="row mdrowtwo">
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="md-bx-1">
-                                <div class="bckclr"></div>
-                                <div class="bx-cntnt">
-                                <div class="inr-hd">
-                                <h4>Module 4</h4>
-                                <img src="assets/img/menu-horizontal.png" alt="">
-                                </div>
-                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
-                                </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="md-bx-1">
-                                <div class="bckclr"></div>
-                                <div class="bx-cntnt">
-                                <div class="inr-hd">
-                                <h4>Module 5</h4>
-                                <img src="assets/img/menu-horizontal.png" alt="">
-                                </div>
-                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
-                                </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="md-bx-1">
-                                <div class="bckclr"></div>
-                                <div class="bx-cntnt">
-                                <div class="inr-hd">
-                                <h4>Module 6</h4>
-                                <img src="assets/img/menu-horizontal.png" alt="">
-                                </div>
-                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
-                                </p>
-                                </div>
-                            </div>
-                        </div>
+                        <INPUT TYPE="Radio" Name="module" Value="COMP7002">COMP7002- Modern Computer Systems</br>
+                        <INPUT TYPE="Radio" Name="module" Value="COMP7029">COMP7029 - Group Project</br>
+						<INPUT TYPE="Radio" Name="module" Value="COMP4002">TECH7004- Cyber Security & The Web</br>
+						
+                        <br>
+                        <button input type="submit" id="btn" value="Login" name="submit">SUBMIT</button> </br></br>
                     </div>
                 </div>
+				</form>
                 <!--page end-->
                 </div>
             </div>

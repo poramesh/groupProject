@@ -1,16 +1,3 @@
-<?php
-include("connection.php");
-	  $sqlfetchreward="select MAX(SURVEYID) FROM MODULESURVEY WHERE MODULECODE ='COMP7002' "; 
-	  $resultfetchreward = mysqli_query($conn, $sqlfetchreward);
-	  $rowfetchreward = mysqli_fetch_row($resultfetchreward);
-	  $surveyid=$rowfetchreward[0];
-$sql = "SELECT MODULECODE,SURVEYID,Q1,Q2,Q3,Q4,Q5 from MODULESURVEY where MODULECODE ='COMP7002' and SURVEYID='$surveyid'";
-$result = $conn->query($sql);
-$row = mysqli_fetch_row($result);
-echo "nisha";
-echo $row[0];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,10 +56,12 @@ echo $row[0];
                                 <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
                                     id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
                                     aria-expanded="false">
-                                    <span> <?php session_start();
+                                    <span> 
+                                        <?php session_start();
                                              $username=$_SESSION['username'];
                                              echo substr($username,0,3);
-                                        ?></span>
+                                        ?>
+                                    </span>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
@@ -146,7 +135,7 @@ echo $row[0];
                             <div class="m-boxes">
                                 <img src="assets/img/grid-image.png" alt="">
                                 <div class="m-content">
-                                    <p>COMP7002 - Modern Computer Systems</p>
+                                   <a href="COMP7002.html"><p>COMP7002 - Modern Computer Systems</p></a>
                                 </div>
                             </div>
                             <!--box2-->
@@ -160,88 +149,113 @@ echo $row[0];
                             <div class="m-boxes">
                                 <img src="assets/img/grid-image.png" alt="">
                                 <div class="m-content">
-                                    <p>COMP7002 - Cyber Security & The Web</p>
+                                    <p>TECH7004 - Cyber Security & The Web</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--side bar end-->
-                <!--page start-->
-                
-               <div class="col-lg-9 col-md-9 col-sm-9">
-                        <!--your objectives-->
-                        <div class="white-box">
-                            <form action="feedback.php" method="post">
-                                <div class="white-box-heading">
-                                    <h5>COMP7002 - Modern Computer Systems </h5>
-                                    <textarea name="modulecode" value="COMP7002"><?php echo $row[0]; ?></textarea>
-                                    <textarea name="surveyid" value="1"><?php echo $row[1]; ?></textarea>
-                                </div>
-                                <h1>FEEDBACK</h1>
-                                <p>1.<?php  echo $row[2]; ?></p>
-                                <input type="radio" id="Poor" name="q1" value="1">
-                                <label for="Poor">&#128542;</label>
 
-                                <input type="radio" id="Average" name="q1" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q1" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q1" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br><br>
-                                <p>2.<?php  echo $row[3]; ?></p>
-                                <input type="radio" id="Poor" name="q2" value="1">
-                                <label for="Poor">&#128542;</label>
-                                <input type="radio" id="Average" name="q2" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q2" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q2" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br><br>
-                                <p>3.<?php  echo $row[4]; ?></p>
-                                <input type="radio" id="Poor" name="q3" value="1">
-                                <label for="Poor">&#128542;</label>
-                                <input type="radio" id="Average" name="q3" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q3" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q3" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br><br>
-                                <p>4.<?php  echo $row[5]; ?></p>
-                                <input type="radio" id="Poor" name="q4" value="1">
-                                <label for="Poor">&#128542;</label>
-                                <input type="radio" id="Average" name="q4" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q4" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q4" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br><br>
-                                <p>5.<?php  echo $row[6]; ?></p>
-                                <input type="radio" id="Poor" name="q5" value="1">
-                                <label for="Poor">&#128542;</label>
-                                <input type="radio" id="Average" name="q5" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q5" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q5" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br><br><br>
-                                <textarea rows="4" cols="50" name="q5" placeholder="Provide your Suggestions here..."></textarea>
-                                <br>
-                                <br>
-                                <button input type="submit" id="btn" value="Login" name="submit">SUBMIT</button> </br></br>
-</div>
+                <!--page start-->
+                <div class="col-lg-9 col-md-9 col-sm-9">
+                    <!--your objectives-->
+                    <div class="white-box">
+                        <div class="white-box-heading">
+                            <h5>Modules</h5>
+                            <img src="assets/img/downarrow.png" alt="">
+                        </div>
+                    <!--white box two-->
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                        <button input type="button" id="btn" value="Login" name="button">
+                            <div class="md-bx-1">
+                                <div class="bckclr"></div>
+                                <div class="bx-cntnt">
+                                <div class="inr-hd">
+                                <a href="COMP7002.php"<h4>COMP7002</h4></a>
+                                <img src="assets/img/menu-horizontal.png" alt="">
+                                </div>
+                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
+                                </p>
+                                </div>
+                            </div>
+                        </button>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="md-bx-1">
+                                <div class="bckclr"></div>
+                                <div class="bx-cntnt">
+                                <div class="inr-hd">
+                                <h4>COMP7029</h4>
+                                <img src="assets/img/menu-horizontal.png" alt="">
+                                </div>
+                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
+                                </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="md-bx-1">
+                                <div class="bckclr"></div>
+                                <div class="bx-cntnt">
+                                <div class="inr-hd">
+                                <h4>TECH7004</h4>
+                                <img src="assets/img/menu-horizontal.png" alt="">
+                                </div>
+                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
+                                </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    </form>
-                    <!--page end-->
+                    <!--row 2-->
+                    <div class="row mdrowtwo">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="md-bx-1">
+                                <div class="bckclr"></div>
+                                <div class="bx-cntnt">
+                                <div class="inr-hd">
+                                <h4>Module 4</h4>
+                                <img src="assets/img/menu-horizontal.png" alt="">
+                                </div>
+                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
+                                </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="md-bx-1">
+                                <div class="bckclr"></div>
+                                <div class="bx-cntnt">
+                                <div class="inr-hd">
+                                <h4>Module 5</h4>
+                                <img src="assets/img/menu-horizontal.png" alt="">
+                                </div>
+                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
+                                </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="md-bx-1">
+                                <div class="bckclr"></div>
+                                <div class="bx-cntnt">
+                                <div class="inr-hd">
+                                <h4>Module 6</h4>
+                                <img src="assets/img/menu-horizontal.png" alt="">
+                                </div>
+                                <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
+                                </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--page end-->
+                </div>
             </div>
-            </div>
-       
-	
+            
         <p class="copyright">Teachwise - All Rights Reserved</p>
         </div>
         
@@ -257,4 +271,3 @@ echo $row[0];
 </body>
 
 </html>
-

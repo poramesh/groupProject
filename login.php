@@ -36,7 +36,7 @@ include("connection.php");
     }
 
     if($usrtype == 'student'){
-        header("Location:module.html");
+        header("Location:module.php");
     } elseif($usrtype == 'moduleleader'){
         header("Location:moduleleader.html");
     }
