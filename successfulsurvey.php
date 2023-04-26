@@ -1,7 +1,5 @@
-<!--This page is a successfull alert page to notify the student that the survey was submitted successfully. 
-It also shows that the reward point has been added for the student-->
-
 <?php
+/* This page provides acknowledgement for the student for providing survey.In addition it shows the reward point*/
 include("connection.php");
  session_start();
 $username1=$_SESSION['username'];
@@ -21,5 +19,6 @@ $row = mysqli_fetch_row($result);
 <body>
     <h2>Thank You for providing your valuable feedback  <?php  echo "$username1 "; ?> !! your reward point is added </h2>
 	<h2>Total reward point is <?php  echo $row[0]; ?></h2>
+	<button onclick="history.back()">Go Back</button> 
 </body>
 </html>

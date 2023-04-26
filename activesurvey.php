@@ -1,4 +1,23 @@
-<!--April 11 2023 update version for comp7002.html-->
+/* This file fetches the current survey from each of the selected module
+Table involved -MODULESURVEY */
+<?php
+include("connection.php");
+ $moduleName = $_POST['module'];
+	  $sqlfetchreward="select MAX(SURVEYID) FROM MODULESURVEY WHERE MODULECODE ='$moduleName' "; 
+	  $resultfetchreward = mysqli_query($conn, $sqlfetchreward);
+	  $rowfetchreward = mysqli_fetch_row($resultfetchreward);
+	  $surveyid=$rowfetchreward[0];
+$sql = "SELECT MODULECODE,SURVEYID,Q1,Q2,Q3,Q4,Q5 from MODULESURVEY where MODULECODE ='$moduleName' and SURVEYID='$surveyid'";
+$result = $conn->query($sql);
+$row = mysqli_fetch_row($result);
+echo "nisha";
+echo $row[0];
+echo $row[1];
+echo $row[2];
+echo $row[3];
+echo $row[4];
+echo $row[5];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -155,17 +174,17 @@
                 <!--side bar end-->
                 <!--page start-->
                 
-                    <div class="col-lg-9 col-md-9 col-sm-9">
+               <div class="col-lg-9 col-md-9 col-sm-9">
                         <!--your objectives-->
                         <div class="white-box">
                             <form action="feedback.php" method="post">
                                 <div class="white-box-heading">
-                                    <h5>COMP7002 - Modern Computer Systems</h5>
-                                    <textarea name="modulecode" value="COMP7002">COMP7002</textarea>
-                                    <textarea name="surveyid" value="1">1</textarea>
+                                    <h5>COMP7002 - Modern Computer Systems </h5>
+                                    <textarea name="modulecode" value="COMP7002"><?php echo $row[0]; ?></textarea>
+                                    <textarea name="surveyid" value="1"><?php echo $row[1]; ?></textarea>
                                 </div>
                                 <h1>FEEDBACK</h1>
-                                <p>1.Did you enjoy the module?</p>
+                                <p>1.<?php  echo $row[2]; ?></p>
                                 <input type="radio" id="Poor" name="q1" value="1">
                                 <label for="Poor">&#128542;</label>
 
@@ -176,7 +195,7 @@
                                 <input type="radio" id="excellent" name="q1" value="4">
                                 <label for="excellent">&#128525;</label>
                                 <br>
-                                <p>2.How did this module help you?</p>
+                                <p>2.<?php  echo $row[3]; ?></p>
                                 <input type="radio" id="Poor" name="q2" value="1">
                                 <label for="Poor">&#128542;</label>
                                 <input type="radio" id="Average" name="q2" value="2">
@@ -186,7 +205,7 @@
                                 <input type="radio" id="excellent" name="q2" value="4">
                                 <label for="excellent">&#128525;</label>
                                 <br>
-                                <p>3.Were the instructions and expectations clear?</p>
+                                <p>3.<?php  echo $row[4]; ?></p>
                                 <input type="radio" id="Poor" name="q3" value="1">
                                 <label for="Poor">&#128542;</label>
                                 <input type="radio" id="Average" name="q3" value="2">
@@ -195,7 +214,7 @@
                                 <label for="happy">&#128578;</label>
                                 <input type="radio" id="excellent" name="q3" value="4">
                                 <label for="excellent">&#128525;</label>
-                                <p>4.Did you feel adequately supported in your learning?</p>
+                                <p>4.<?php  echo $row[5]; ?></p>
                                 <input type="radio" id="Poor" name="q4" value="1">
                                 <label for="Poor">&#128542;</label>
                                 <input type="radio" id="Average" name="q4" value="2">
@@ -204,7 +223,7 @@
                                 <label for="happy">&#128578;</label>
                                 <input type="radio" id="excellent" name="q4" value="4">
                                 <label for="excellent">&#128525;</label>
-                                <p>5.Do you have any suggestion that could be used to improve the module</p>
+                                <p>5.<?php  echo $row[6]; ?></p>
 
                                 <br>
                                 <textarea rows="4" cols="50" name="q5" placeholder="Provide your Suggestions here..."></textarea>
@@ -217,7 +236,8 @@
                     <!--page end-->
             </div>
             </div>
-            
+       
+	
         <p class="copyright">Teachwise - All Rights Reserved</p>
         </div>
         
@@ -233,3 +253,5 @@
 </body>
 
 </html>
+
+

@@ -1,4 +1,6 @@
 <?php
+/* This  file  stores the feedback succesfully into survey table and will automaticaly add the reward poitn for each successfull survey completion
+*/
 include("connection.php");
  session_start();
 $username1=$_SESSION['username'];
@@ -49,10 +51,10 @@ echo "<br>";
 		$count=$rowfetchreward[1] + 1;
 	 	$sqlreward="update REWARD set REWARD='$reward',SURVEYCOUNT='$count' where STUDENTID='$studentid'";
 		$resultreward = mysqli_query($conn, $sqlreward);
-		header("Location:successfulsurvey.html");
+		header("Location:successfulsurvey.php");
 	 }
 	 else{
 		 echo "you have already provided your feedback";
-			 header("Location:alreadyattempted.html");
+			 header("Location:alreadyattempted.php");
 	 }
 ?>

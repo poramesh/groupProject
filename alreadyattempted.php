@@ -1,14 +1,14 @@
-<!--Page to show users that they have already attempted completing a survey.-->
+
 <?php
-/* This file allows the user to attempt the survey once
-Table involved REWARD */
+/*This file fetcheds the user's existing reward points and displays
+Tables involved Reward*/
 include("connection.php");
  session_start();
 $username1=$_SESSION['username'];
 $studentid=$_SESSION['studentid'];
 	  $sql = "select reward from reward where studentid='$studentid'; ";
 $result = $conn->query($sql);
-$row = mysqli_fetch_row($result); 
+$row = mysqli_fetch_row($result);
 
 ?>
 <!DOCTYPE html>
@@ -19,8 +19,8 @@ $row = mysqli_fetch_row($result);
     <title></title>
 </head>
 <body>
-    <!--Below are h tags showing the desired message to students after actions taken on the platform-->
     <h2>You have already responded to this feedback! THANK YOU</h2>
-	<h2>Hi<?php  echo "$username1 "; ?>  reward point is <?php  echo $row[0]; ?></h2>
+	<h2>Hi <?php  echo "$username1 "; ?>  your total reward point is <?php  echo $row[0]; ?></h2>
+	<button onclick="history.back()">Go Back</button> 
 </body>
 </html>

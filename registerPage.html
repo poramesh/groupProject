@@ -1,3 +1,4 @@
+<!--This page enables the new user to register .All the details are stored in login page using insert_user.php -->
 <!DOCTYPE html>
 <?php session_start();?>
 <html>
@@ -23,7 +24,7 @@
 						<!--username-->
 						<input type="text" placeholder="Username" name="username" required/><br/>
 						<!-- Password field -->
-						<input type="password" placeholder="password" name="password" id="myInput">
+						<input type="password" placeholder="password min 8 characters" name="password" id="myInput" minlength="8"  required>
 						<!-- usertype field -->
 						<input type="text" placeholder="id" name="id" >
 						<input type="radio" id="student" name="usertype" value="student">
@@ -37,6 +38,7 @@
 						<!--<button type="submit" name="submit">Submit</button>-->
 
 						<button input type="submit" id="btn" value="register" name="register">Sign up</button><br><br>
+						<p style="color:black">We protect your data and respect your privacy </p>
 
 						  <a href='loginPage.html'><h3 style="color:black">Already have an account? click this link!</h3></a>
 						</br>

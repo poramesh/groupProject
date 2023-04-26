@@ -1,4 +1,6 @@
 <?php
+/* This file validates the login username and password and on successfull login it navigates to respective page*
+student - module.php and moduleleader -welcomeadmin.html.On unsuccessful login alret message will be sent */
 include("connection.php");
    if(isset($_POST['submit'])){
     session_start();
@@ -38,7 +40,7 @@ include("connection.php");
     if($usrtype == 'student'){
         header("Location:module.php");
     } elseif($usrtype == 'moduleleader'){
-        header("Location:moduleleader.html");
+        header("Location:moduleleader.php");
     }
     else{
         echo '<script>

@@ -1,4 +1,10 @@
+
 <!DOCTYPE html>
+<!-- On successfull login of the student this page displays a dashboard where many functions can be performed
+1.Raise Individual feedback
+2.Check the reward points
+3.Fill active surveys for each module
+4.Logout -->
 <html lang="en">
 
 <head>
@@ -34,11 +40,11 @@
                         <!-- Icons -->
                         <ul class="navbar-nav d-flex flex-row me-1">
                             <li class="nav-item me-3 me-lg-0">
-                                <a class="nav-link text-white active" href="#"><i class="bi bi-grid"></i>
+                                <a class="nav-link text-white active" href="module.php"><i class="bi bi-grid"></i>
                                     Modules</a>
                             </li>
                             <li class="nav-item me-3 me-lg-0">
-                                <a class="nav-link text-white" href="#"><i class="bi bi-chat"></i> Rewards</a>
+                                <a class="nav-link text-white" href="rewards.php"><i class="bi bi-chat"></i> Rewards</a>
                             </li>
                             <li class="nav-item me-3 me-lg-0">
                                 <a class="nav-link text-white" href="individualfeedback.html"><i class="bi bi-arrow-counterclockwise"></i>
@@ -59,7 +65,7 @@
                                     <span> 
                                         <?php session_start();
                                              $username=$_SESSION['username'];
-                                             echo substr($username,0,3);
+                                             echo substr($username,0,1);
                                         ?>
                                     </span>
                                 </a>
@@ -71,7 +77,7 @@
                                         <a class="dropdown-item" href="#">Settings</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">Logout</a>
+                                        <a class="dropdown-item" href="logout.php">Logout</a>
                                     </li>
                                 </ul>
                             </li>
@@ -135,21 +141,21 @@
                             <div class="m-boxes">
                                 <img src="assets/img/grid-image.png" alt="">
                                 <div class="m-content">
-                                   <a href="COMP7002.html"><p>COMP7002 - Modern Computer Systems</p></a>
+                                   <a href="COMP7002.php"><p>COMP7002 - Modern Computer Systems</p></a>
                                 </div>
                             </div>
                             <!--box2-->
                             <div class="m-boxes">
                                 <img src="assets/img/grid-image.png" alt="">
                                 <div class="m-content">
-                                    <p>COMP7029 - Group Project</p>
+                                    <a href="COMP7029.php"><p>COMP7029 - Group Project</p></a>
                                 </div>
                             </div>
                             <!--box3-->
                             <div class="m-boxes">
                                 <img src="assets/img/grid-image.png" alt="">
                                 <div class="m-content">
-                                    <p>TECH7004 - Cyber Security & The Web</p>
+                                    <a href="TECH7004.php"><p>TECH7004 - Cyber Security & The Web</p></a>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +193,7 @@
                                 <div class="bckclr"></div>
                                 <div class="bx-cntnt">
                                 <div class="inr-hd">
-                                <h4>COMP7029</h4>
+                                <a href="COMP7029.php"<h4>COMP7029</h4></a>
                                 <img src="assets/img/menu-horizontal.png" alt="">
                                 </div>
                                 <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.
@@ -200,7 +206,7 @@
                                 <div class="bckclr"></div>
                                 <div class="bx-cntnt">
                                 <div class="inr-hd">
-                                <h4>TECH7004</h4>
+                                <a href="TECH7004.php"<h4>TECH7004</h4></a>
                                 <img src="assets/img/menu-horizontal.png" alt="">
                                 </div>
                                 <p>This is a description of Module 1. It is designed to inform the user about the contents of the module.

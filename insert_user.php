@@ -1,4 +1,6 @@
 <?php
+/*This page stores the register details into login table.
+In addition, the student informations are stored into reward table*/
 include("connection.php");
 	
 	session_start();

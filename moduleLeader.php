@@ -1,4 +1,4 @@
-<!--Initial prototype for module leader dashboard after creating a survey. This page will not be used in production.-->
+<!--This page is the homepage for Module Leader user type and serves as the entry point for users who log in as module leaders-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Admin</title>
+    <title>Module</title>
     <!--bootsrap css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Boostrap icons-->
@@ -20,13 +20,12 @@
 </head>
 
 <body>
-
     <!---Header Start-->
     <header class="dashboard-header">
         <div class="container container-lg container-md container-sm">
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-                    <a href="/" class="nav-brand">
+                    <a href="moduleLeader.html" class="nav-brand">
                         <img src="assets/img/logo.png" alt="logo">
                     </a>
                 </div>
@@ -39,13 +38,13 @@
                                 <a class="nav-link text-white active" href="#"><i class="bi bi-grid"></i>
                                     Modules</a>
                             </li>
-                            <li class="nav-item me-3 me-lg-0">
-                                <a class="nav-link text-white" href="#"><i class="bi bi-chat"></i> Rewards</a>
-                            </li>
-                            <li class="nav-item me-3 me-lg-0">
-                                <a class="nav-link text-white" href="#"><i class="bi bi-arrow-counterclockwise"></i>
+                            <!--<li class="nav-item me-3 me-lg-0">
+                                <a class="nav-link text-white" href="rewards.php"><i class="bi bi-chat"></i> Rewards</a>
+                            </li>-->
+                            <!--<li class="nav-item me-3 me-lg-0">
+                                <a href="feedback.html" class="nav-link text-white" href="#"><i class="bi bi-arrow-counterclockwise"></i>
                                     Feedback</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </nav>
                     <!-- Navbar -->
@@ -53,12 +52,15 @@
                 <div class="col-lg-3 col-md-3 col-sm-3 col-3">
                     <nav class="navbar navbar-expand-lg avatar-nav">
                         <ul class="navbar-nav">
-                            <!-- Avatar -->
+                            <!-- Avatar dropdown -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
                                     id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
                                     aria-expanded="false">
-                                    <span> J</span>
+                                    <span> <?php session_start();
+                                             $username=$_SESSION['username'];
+                                             echo substr($username,0,1);
+                                        ?></span>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
@@ -68,7 +70,7 @@
                                         <a class="dropdown-item" href="#">Settings</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">Logout</a>
+                                        <a class="dropdown-item" href="logout.php">Logout</a>
                                     </li>
                                 </ul>
                             </li>
@@ -119,38 +121,7 @@
                     </nav>
 
                     <!---Module-->
-                    <div class="module-content">
-                        <div class="people-heading">
-                            <h4>Module (3)</h4>
-                            <img src="assets/img/downarrow.png" alt="">
-                        </div>
-
-                        <!---module content-->
-                        <div class="module-boxes">
-
-                            <!--box1-->
-                            <div class="m-boxes">
-                                <img src="assets/img/grid-image.png" alt="">
-                                <div class="m-content">
-                                    <p>COMP7002 - Modern Computer Systems</p>
-                                </div>
-                            </div>
-                            <!--box2-->
-                            <div class="m-boxes">
-                                <img src="assets/img/grid-image.png" alt="">
-                                <div class="m-content">
-                                    <p>COMP7029 - Group Project</p>
-                                </div>
-                            </div>
-                            <!--box3-->
-                            <div class="m-boxes">
-                                <img src="assets/img/grid-image.png" alt="">
-                                <div class="m-content">
-                                    <p>COMP7002 - Cyber Security & The Web</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <!--side bar end-->
 
@@ -159,47 +130,62 @@
                     <!--your objectives-->
                     <div class="white-box">
                         <div class="white-box-heading">
-                            <h5>Welcome Admin</h5>
+                            <a href='####'><h5>WELCOME </h5>
                             <img src="assets/img/downarrow.png" alt="">
-                        </div>
-                        <div class="white-box-heading-1">
-                            <h5>My Modules</h5>
                         </div>
                     <!--white box two-->
                     <div class="row">
+                        <!--<button input type="button" id="btn" value="Login" name="button"></button>-->
                         <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="dm-bx-1 activee">
-                                <h4>Module 1</h4>
+                                <div class="md-bx-1">
+                                <div class="bckclr"></div>
+                                <div class="bx-cntnt">
+                                <div class="inr-hd">
+                                <a href="welcomeAdmin.php"><h4>Create Survey</h4></a>
+                                <img src="assets/img/menu-horizontal.png" alt="">
+                                </div>
+                                </div>
                             </div>
                         </div>
+                       <!-- </button>-->
+
                         <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="dm-bx-1">
-                              <img src="assets/img/plus-2.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="dm-bx-1">
-                                <img src="assets/img/plus-2.png" alt="">
+                            <div class="md-bx-1">
+                                <div class="bckclr"></div>
+                                <div class="bx-cntnt">
+                                <div class="inr-hd">
+                                <a href="completedsurvey.html"><h4>Completed Surveys</h4></a>
+                                <img src="assets/img/menu-horizontal.png" alt="">
+                                </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!--row 2-->
                     <div class="row mdrowtwo">
                         <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="dm-bx-1">
-                                <img src="assets/img/plus-2.png" alt="">
+                            <div class="md-bx-1">
+                                <div class="bckclr"></div>
+                                <div class="bx-cntnt">
+                                <div class="inr-hd">
+                                <a href="activesurvey.html"><h4>Active Surveys</h4></a>
+                                <img src="assets/img/menu-horizontal.png" alt="">
+                                </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="dm-bx-1">
-                                <img src="assets/img/plus-2.png" alt="">
+						    <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="md-bx-1">
+                                <div class="bckclr"></div>
+                                <div class="bx-cntnt">
+                                <div class="inr-hd">
+                                <a href="indivFeedModLeader.html"><h4>Individual Student Feedback</h4></a>
+                                <img src="assets/img/menu-horizontal.png" alt="">
+                                </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="dm-bx-1">
-                                <img src="assets/img/plus-2.png" alt="">
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <!--page end-->

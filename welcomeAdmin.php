@@ -1,5 +1,9 @@
-<!--April 11 2023 update version for comp7002.html-->
-
+<!-- This page is for the module leader to preform actions like 
+1.creating survey
+2.Completed Survey
+3.Active survey
+4.To display the feedback reaised by students individually
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module</title>
+    <title>Welcome Admin</title>
     <!--bootsrap css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Boostrap icons-->
@@ -39,13 +43,8 @@
                                 <a class="nav-link text-white active" href="#"><i class="bi bi-grid"></i>
                                     Modules</a>
                             </li>
-                            <li class="nav-item me-3 me-lg-0">
-                                <a class="nav-link text-white" href="#"><i class="bi bi-chat"></i> Rewards</a>
-                            </li>
-                            <li class="nav-item me-3 me-lg-0">
-                                <a class="nav-link text-white" href="individualfeedback.html"><i class="bi bi-arrow-counterclockwise"></i>
-                                    Feedback</a>
-                            </li>
+                           
+                            
                         </ul>
                     </nav>
                     <!-- Navbar -->
@@ -58,7 +57,10 @@
                                 <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
                                     id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
                                     aria-expanded="false">
-                                    <span> J</span>
+                                    <span> <?php session_start();
+                                            $username = $_SESSION['username'];
+                                            echo substr($username, 0, 1);
+                                            ?></span>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
@@ -68,7 +70,7 @@
                                         <a class="dropdown-item" href="#">Settings</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">Logout</a>
+                                        <a class="dropdown-item" href="logout.php">Logout</a>
                                     </li>
                                 </ul>
                             </li>
@@ -146,76 +148,105 @@
                             <div class="m-boxes">
                                 <img src="assets/img/grid-image.png" alt="">
                                 <div class="m-content">
-                                    <p>COMP7002 - Cyber Security & The Web</p>
+                                    <p>TECH7004- Cyber Security & The Web</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--side bar end-->
+
                 <!--page start-->
-                
-                    <div class="col-lg-9 col-md-9 col-sm-9">
-                        <!--your objectives-->
-                        <div class="white-box">
-                            <form action="feedback.php" method="post">
-                                <div class="white-box-heading">
-                                    <h5>COMP7002 - Modern Computer Systems</h5>
-                                    <textarea name="modulecode" value="COMP7002">COMP7002</textarea>
-                                    <textarea name="surveyid" value="1">1</textarea>
-                                </div>
-                                <h1>FEEDBACK</h1>
-                                <p>1.Did you enjoy the module?</p>
-                                <input type="radio" id="Poor" name="q1" value="1">
-                                <label for="Poor">&#128542;</label>
-
-                                <input type="radio" id="Average" name="q1" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q1" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q1" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br>
-                                <p>2.How did this module help you?</p>
-                                <input type="radio" id="Poor" name="q2" value="1">
-                                <label for="Poor">&#128542;</label>
-                                <input type="radio" id="Average" name="q2" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q2" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q2" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br>
-                                <p>3.Were the instructions and expectations clear?</p>
-                                <input type="radio" id="Poor" name="q3" value="1">
-                                <label for="Poor">&#128542;</label>
-                                <input type="radio" id="Average" name="q3" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q3" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q3" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <p>4.Did you feel adequately supported in your learning?</p>
-                                <input type="radio" id="Poor" name="q4" value="1">
-                                <label for="Poor">&#128542;</label>
-                                <input type="radio" id="Average" name="q4" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q4" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q4" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <p>5.Do you have any suggestion that could be used to improve the module</p>
-
-                                <br>
-                                <textarea rows="4" cols="50" name="q5" placeholder="Provide your Suggestions here..."></textarea>
-                                <br>
-                                <br>
-                                <button input type="submit" id="btn" value="Login" name="submit">SUBMIT</button> </br></br>
-</div>
+                <div class="col-lg-9 col-md-9 col-sm-9">
+                    <!--your objectives-->
+                    <div class="white-box">
+                        <div class="white-box-heading">
+                            <h5>Welcome Admin</h5>
+                            <img src="assets/img/downarrow.png" alt="">
+                        </div>
+                        <div class="white-box-heading-1">
+                            <h5>My Modules</h5>
+                        </div>
+                    <!--white box two-->
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="dm-bx-1">
+                                <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="assets/img/plus-2.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="dm-bx-1">
+                                <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="assets/img/plus-2.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="dm-bx-1">
+                                <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="assets/img/plus-2.png" alt=""></a>
+                            </div>
+                        </div>
                     </div>
-                    </form>
-                    <!--page end-->
-            </div>
+                    <!--row 2-->
+                    <div class="row mdrowtwo">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="dm-bx-1">
+                                <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="assets/img/plus-2.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="dm-bx-1">
+                                <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="assets/img/plus-2.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="dm-bx-1">
+                                <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="assets/img/plus-2.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--page end
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+                <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create a new survey</h5>
+		  
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="createsurvey.php" method="post">
+		    <INPUT TYPE="Radio" Name="module" Value="COMP7002" required="required">COMP7002- Modern Computer Systems</br>
+            <INPUT TYPE="Radio" Name="module" Value="COMP7029" required="required">COMP7029 - Group Project</br>
+			<INPUT TYPE="Radio" Name="module" Value="TECH7004" required="required">TECH7004- Cyber Security & The Web </br>
+            <Label>Question no.1</Label>
+            <input type="text" name="Q1" placeholder="Type your question here" size="40" required>
+			<br>
+            <Label>Question no.2</Label>
+            <input type="text" name="Q2" placeholder="Type your question here" size="40" required>
+			<br>
+            <Label>Question no.3</Label>
+            <input type="text" name="Q3" placeholder="Type your question here" size="40" required>
+			<br>
+            <Label>Question no.4</Label>
+            <input type="text" name="Q4" placeholder="Type your question here" size="40" required>
+			<br>
+            <Label>Question no.5</Label>
+            <input type="text" name="Q5" placeholder="Type your question here" size="40" required>
+			<br>
+           <!-- <input type="submit" name="submit">-->
+			<button input type="submit" id="btn"  name="submit">SUBMIT</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+                </div>
             </div>
             
         <p class="copyright">Teachwise - All Rights Reserved</p>

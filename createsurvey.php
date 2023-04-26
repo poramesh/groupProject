@@ -7,12 +7,12 @@ $Q2 = $_POST['Q2'];
 $Q3 = $_POST['Q3'];
 $Q4 = $_POST['Q4'];
 $Q5 = $_POST['Q5'];
-echo "module: ",$modulecode;
+/*echo "module: ",$modulecode;
 echo "<br>";
 echo "q1 : ",$Q1;
-echo "<br>";
+echo "<br>";*/
 $conn = new mysqli($servername, $username, $password, $db_name);
-echo "hello";
+
 	  $sqlfetchreward="select MAX(SURVEYID) FROM MODULESURVEY "; 
 	  $resultfetchreward = mysqli_query($conn, $sqlfetchreward);
 	  $rowfetchreward = mysqli_fetch_row($resultfetchreward);
@@ -21,6 +21,7 @@ echo "hello";
    	$result1 = mysqli_query($conn, $sql1);
 
 
-	echo "data inserted into the modeulesurvey table successfully ";
+
+echo "<script>if(confirm('Your survey is created Sucessfully . ')){document.location.href='welcomeAdmin.php'};</script>";
    }
 ?>

@@ -1,14 +1,14 @@
 <?php
+/*When the module leader creates a survey for the module comp7002 it gets stored in the table -Modulesurvey
+This file fetches the active survey from the table and diaplays it*/
 include("connection.php");
-	  $sqlfetchreward="select MAX(SURVEYID) FROM MODULESURVEY WHERE MODULECODE ='COMP7002' "; 
-	  $resultfetchreward = mysqli_query($conn, $sqlfetchreward);
-	  $rowfetchreward = mysqli_fetch_row($resultfetchreward);
-	  $surveyid=$rowfetchreward[0];
+$sqlfetchreward = "select MAX(SURVEYID) FROM MODULESURVEY WHERE MODULECODE ='COMP7002' ";
+$resultfetchreward = mysqli_query($conn, $sqlfetchreward);
+$rowfetchreward = mysqli_fetch_row($resultfetchreward);
+$surveyid = $rowfetchreward[0];
 $sql = "SELECT MODULECODE,SURVEYID,Q1,Q2,Q3,Q4,Q5 from MODULESURVEY where MODULECODE ='COMP7002' and SURVEYID='$surveyid'";
 $result = $conn->query($sql);
 $row = mysqli_fetch_row($result);
-echo "nisha";
-echo $row[0];
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +22,7 @@ echo $row[0];
     <!--bootsrap css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Boostrap icons-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
-        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
     <!-- MDB -->
     <link rel="stylesheet" href="assets/css/mdb.min.css">
     <!--custom css-->
@@ -47,11 +46,11 @@ echo $row[0];
                         <!-- Icons -->
                         <ul class="navbar-nav d-flex flex-row me-1">
                             <li class="nav-item me-3 me-lg-0">
-                                <a class="nav-link text-white active" href="#"><i class="bi bi-grid"></i>
+                                <a class="nav-link text-white active" href="module.php"><i class="bi bi-grid"></i>
                                     Modules</a>
                             </li>
                             <li class="nav-item me-3 me-lg-0">
-                                <a class="nav-link text-white" href="#"><i class="bi bi-chat"></i> Rewards</a>
+                                <a class="nav-link text-white" href="rewards.php"><i class="bi bi-chat"></i> Rewards</a>
                             </li>
                             <li class="nav-item me-3 me-lg-0">
                                 <a class="nav-link text-white" href="individualfeedback.html"><i class="bi bi-arrow-counterclockwise"></i>
@@ -66,13 +65,11 @@ echo $row[0];
                         <ul class="navbar-nav">
                             <!-- Avatar -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
-                                    id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
-                                    aria-expanded="false">
+                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                                     <span> <?php session_start();
-                                             $username=$_SESSION['username'];
-                                             echo substr($username,0,3);
-                                        ?></span>
+                                            $username = $_SESSION['username'];
+                                            echo substr($username, 0, 1);
+                                            ?></span>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
@@ -82,7 +79,7 @@ echo $row[0];
                                         <a class="dropdown-item" href="#">Settings</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">Logout</a>
+                                        <a class="dropdown-item" href="logout.php">Logout</a>
                                     </li>
                                 </ul>
                             </li>
@@ -146,21 +143,21 @@ echo $row[0];
                             <div class="m-boxes">
                                 <img src="assets/img/grid-image.png" alt="">
                                 <div class="m-content">
-                                    <p>COMP7002 - Modern Computer Systems</p>
+                                    <a href="COMP7002.php" <p>COMP7002 - Modern Computer Systems</p></a>
                                 </div>
                             </div>
                             <!--box2-->
                             <div class="m-boxes">
                                 <img src="assets/img/grid-image.png" alt="">
                                 <div class="m-content">
-                                    <p>COMP7029 - Group Project</p>
+                                    <a href="COMP7029.php" <p>COMP7029 - Group Project</p></a>
                                 </div>
                             </div>
                             <!--box3-->
                             <div class="m-boxes">
                                 <img src="assets/img/grid-image.png" alt="">
                                 <div class="m-content">
-                                    <p>COMP7002 - Cyber Security & The Web</p>
+                                    <a href="TECH7004.php" <p>COMP7004 - Cyber Security & The Web</p></a>
                                 </div>
                             </div>
                         </div>
@@ -168,83 +165,85 @@ echo $row[0];
                 </div>
                 <!--side bar end-->
                 <!--page start-->
-                
-               <div class="col-lg-9 col-md-9 col-sm-9">
-                        <!--your objectives-->
-                        <div class="white-box">
-                            <form action="feedback.php" method="post">
-                                <div class="white-box-heading">
-                                    <h5>COMP7002 - Modern Computer Systems </h5>
-                                    <textarea name="modulecode" value="COMP7002"><?php echo $row[0]; ?></textarea>
-                                    <textarea name="surveyid" value="1"><?php echo $row[1]; ?></textarea>
-                                </div>
-                                <h1>FEEDBACK</h1>
-                                <p>1.<?php  echo $row[2]; ?></p>
-                                <input type="radio" id="Poor" name="q1" value="1">
-                                <label for="Poor">&#128542;</label>
 
-                                <input type="radio" id="Average" name="q1" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q1" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q1" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br><br>
-                                <p>2.<?php  echo $row[3]; ?></p>
-                                <input type="radio" id="Poor" name="q2" value="1">
-                                <label for="Poor">&#128542;</label>
-                                <input type="radio" id="Average" name="q2" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q2" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q2" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br><br>
-                                <p>3.<?php  echo $row[4]; ?></p>
-                                <input type="radio" id="Poor" name="q3" value="1">
-                                <label for="Poor">&#128542;</label>
-                                <input type="radio" id="Average" name="q3" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q3" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q3" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br><br>
-                                <p>4.<?php  echo $row[5]; ?></p>
-                                <input type="radio" id="Poor" name="q4" value="1">
-                                <label for="Poor">&#128542;</label>
-                                <input type="radio" id="Average" name="q4" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q4" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q4" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br><br>
-                                <p>5.<?php  echo $row[6]; ?></p>
-                                <input type="radio" id="Poor" name="q5" value="1">
-                                <label for="Poor">&#128542;</label>
-                                <input type="radio" id="Average" name="q5" value="2">
-                                <label for="Average">&#128577;</label>
-                                <input type="radio" id="happy" name="q5" value="3">
-                                <label for="happy">&#128578;</label>
-                                <input type="radio" id="excellent" name="q5" value="4">
-                                <label for="excellent">&#128525;</label>
-                                <br><br><br>
-                                <textarea rows="4" cols="50" name="q5" placeholder="Provide your Suggestions here..."></textarea>
-                                <br>
-                                <br>
-                                <button input type="submit" id="btn" value="Login" name="submit">SUBMIT</button> </br></br>
-</div>
+                <div class="col-lg-9 col-md-9 col-sm-9">
+                    <!--your objectives-->
+                    <div class="white-box">
+                        <form action="feedback.php" method="post">
+                            <div class="white-box-heading">
+                                <h5>COMP7002 - Modern Computer Systems </h5>
+                                <textarea name="modulecode" value="COMP7002"><?php 
+                                                                                echo $row[0]; ?></textarea>
+                                <textarea name="surveyid" value="1"><?php 
+                                                                    echo $row[1]; ?></textarea>
+                            </div>
+                            <h1>FEEDBACK</h1>
+                            <p>1.<?php echo $row[2]; ?></p>
+                            <input type="radio" id="Poor" name="q1" value="1">
+                            <label for="Poor">&#128542;</label>
+
+                            <input type="radio" id="Average" name="q1" value="2">
+                            <label for="Average">&#128577;</label>
+                            <input type="radio" id="happy" name="q1" value="3">
+                            <label for="happy">&#128578;</label>
+                            <input type="radio" id="excellent" name="q1" value="4">
+                            <label for="excellent">&#128525;</label>
+                            <br><br>
+                            <p>2.<?php echo $row[3]; ?></p>
+                            <input type="radio" id="Poor" name="q2" value="1">
+                            <label for="Poor">&#128542;</label>
+                            <input type="radio" id="Average" name="q2" value="2">
+                            <label for="Average">&#128577;</label>
+                            <input type="radio" id="happy" name="q2" value="3">
+                            <label for="happy">&#128578;</label>
+                            <input type="radio" id="excellent" name="q2" value="4">
+                            <label for="excellent">&#128525;</label>
+                            <br><br>
+                            <p>3.<?php echo $row[4]; ?></p>
+                            <input type="radio" id="Poor" name="q3" value="1">
+                            <label for="Poor">&#128542;</label>
+                            <input type="radio" id="Average" name="q3" value="2">
+                            <label for="Average">&#128577;</label>
+                            <input type="radio" id="happy" name="q3" value="3">
+                            <label for="happy">&#128578;</label>
+                            <input type="radio" id="excellent" name="q3" value="4">
+                            <label for="excellent">&#128525;</label>
+                            <br><br>
+                            <p>4.<?php echo $row[5]; ?></p>
+                            <input type="radio" id="Poor" name="q4" value="1">
+                            <label for="Poor">&#128542;</label>
+                            <input type="radio" id="Average" name="q4" value="2">
+                            <label for="Average">&#128577;</label>
+                            <input type="radio" id="happy" name="q4" value="3">
+                            <label for="happy">&#128578;</label>
+                            <input type="radio" id="excellent" name="q4" value="4">
+                            <label for="excellent">&#128525;</label>
+                            <br><br>
+                            <p>5.<?php echo $row[6]; ?></p>
+                            <input type="radio" id="Poor" name="q5" value="1">
+                            <label for="Poor">&#128542;</label>
+                            <input type="radio" id="Average" name="q5" value="2">
+                            <label for="Average">&#128577;</label>
+                            <input type="radio" id="happy" name="q5" value="3">
+                            <label for="happy">&#128578;</label>
+                            <input type="radio" id="excellent" name="q5" value="4">
+                            <label for="excellent">&#128525;</label>
+                            <br><br><br>
+                            <textarea rows="4" cols="50" name="q5" placeholder="Provide your Suggestions here..."></textarea>
+                            <br>
+                            <br>
+                            <button input type="submit" id="btn" value="Login" name="submit">SUBMIT</button> </br></br>
                     </div>
-                    </form>
-                    <!--page end-->
+                </div>
+                </form>
+                <!--page end-->
             </div>
-            </div>
-       
-	
-        <p class="copyright">Teachwise - All Rights Reserved</p>
         </div>
-        
+
+
+        <p class="copyright">Teachwise - All Rights Reserved</p>
+    </div>
+
     </div>
     <!---content end-->
 
@@ -257,4 +256,3 @@ echo $row[0];
 </body>
 
 </html>
-

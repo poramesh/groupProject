@@ -27,7 +27,7 @@ html,body{
 .dashboard-header .main-nav .nav-link {
     transition: .4s ease all;
     background-color: transparent !important;
-    padding: 6px 15px !important;
+    padding: 6px 10px !important;
     border-radius: 4px;
 }
 

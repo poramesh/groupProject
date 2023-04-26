@@ -1,5 +1,5 @@
 <?php
-
+/* This page destroys the session and logouts from the system*/
 
 
 // destroy the session
